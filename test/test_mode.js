@@ -1,16 +1,18 @@
-var kue = require('../'),
-    _ = require('lodash'),
-    queue = kue.createQueue();
+const kue = require('../')
+const _ = require('lodash');
+let queue;
 
 describe('Test Mode', function() {
     context('when enabled', function() {
         before(function() {
+            queue = kue.createQueue();
             queue.testMode.enter();
         });
 
         afterEach(function() {
             queue.testMode.clear();
         });
+
 
         it('adds jobs to an array in memory', function() {
             queue.createJob('myJob', { foo: 'bar' }).save();
@@ -67,6 +69,10 @@ describe('Test Mode', function() {
             queue.testMode.enter();
             queue.testMode.exit();
         });
+
+        after(function(done){
+            queue.shutdown(50, done);
+        })
 
         it('processes jobs regularly', function(done) {
             queue.createJob('myJob', { foo: 'bar' }).save();

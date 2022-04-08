@@ -29,7 +29,7 @@
     "express": "^4.12.2",
     "lodash": "^4.0.0",
     "nib": "~1.1.2",
-    "node-redis-warlock": "~0.2.0",
+    "node-redis-warlock": "^1.0.2",
     "pug": "^3.0.2",
     "redis": "~2.6.0-2",
     "stylus": "~0.54.5",
@@ -49,7 +49,7 @@
     "kue-dashboard": "bin/kue-dashboard"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --exit"
   },
   "optionalDependencies": {
     "reds": "^0.2.5"
