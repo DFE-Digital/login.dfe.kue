@@ -103,9 +103,9 @@ describe( 'JSON API', function () {
       request( app )
         .get( '/job/' + scope.jobId )
         .expect( function ( res ) {
-          res.body.id.should.eql( scope.jobId );
-          res.body.type.should.eql( type );
-          res.body.state.should.eql( 'inactive' );
+          res.body.id.should.equal( scope.jobId.toString() );
+          res.body.type.should.equal( type );
+          res.body.state.should.equal( 'inactive' );
         } )
         .end( done );
     } );
@@ -125,9 +125,9 @@ describe( 'JSON API', function () {
       request( app )
         .get( '/job/' + scope.jobId )
         .expect( function ( res ) {
-          res.body.id.should.eql( scope.jobId );
-          res.body.type.should.eql( type );
-          res.body.state.should.eql( 'active' );
+          res.body.id.should.equal( scope.jobId.toString()  );
+          res.body.type.should.equal( type );
+          res.body.state.should.equal( 'active' );
         } )
         .end( done );
     } );
@@ -150,7 +150,7 @@ describe( 'JSON API', function () {
         .get( '/job/search' )
         .query( {} )
         .expect( function ( res ) {
-          res.body.length.should.eql( 0 );
+          res.body.length.should.equal( 0 );
         } )
         .end( done );
     } );
@@ -164,7 +164,7 @@ describe( 'JSON API', function () {
         } )
         .expect( function ( res ) {
           // we created 6 jobs, one was deleted, 5 left
-          res.body.length.should.eql( 5 );
+          res.body.length.should.equal( 5 );
         } )
         .end( done );
     } );
@@ -176,7 +176,7 @@ describe( 'JSON API', function () {
       request( app )
         .get( '/jobs/0..3' )
         .expect( function ( res ) {
-          res.body.length.should.eql( 4 );
+          res.body.length.should.equal( 4 );
         } )
         .end( done );
     } );
@@ -186,7 +186,7 @@ describe( 'JSON API', function () {
       request( app )
         .get( '/jobs/' + type + '/inactive/0..20/asc' )
         .expect( function ( res ) {
-          res.body.length.should.eql( 5 );
+          res.body.length.should.equal( 5 );
         } )
         .end( done );
     } );

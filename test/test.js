@@ -14,9 +14,9 @@ describe('CONNECTION', function(){
 		  redis: 'redis://localhost:6379/15?foo=bar'
 	  } );
 
-	  jobs.client.options.port.should.be.eql( 6379 );
-	  jobs.client.options.host.should.be.eql( 'localhost' );
-	  jobs.client.options.foo.should.be.eql( 'bar' );
+	  jobs.client.options.port.should.be.equal( '6379' );
+	  jobs.client.options.host.should.be.equal( 'localhost' );
+	  jobs.client.options.foo.should.be.equal( 'bar' );
 
 	  var jobData = {
 		  title: 'welcome email for tj',
@@ -28,7 +28,7 @@ describe('CONNECTION', function(){
 		  job.data.should.be.eql( jobData );
 		  job.log( '<p>This is <span style="color: green;">a</span> formatted log<p/>' );
 		  // Needs to be here to support the async client.select statement where the return happens sync but the call is async
-		  jobs.client.selected_db.should.be.eql(15);
+		  jobs.client.selected_db.should.be.equal('15');
 		  jdone();
 		  done();
 	  } );
@@ -46,9 +46,9 @@ describe('CONNECTION', function(){
 			}
 		} );
 
-		jobs.client.options.port.should.be.eql( 6379 );
-		jobs.client.options.host.should.be.eql( 'localhost' );
-		jobs.client.options.foo.should.be.eql( 'bar' );
+		jobs.client.options.port.should.be.equal( 6379 );
+		jobs.client.options.host.should.be.equal( 'localhost' );
+		jobs.client.options.foo.should.be.equal( 'bar' );
 
 		var jobData = {
 			title: 'welcome email for tj',
@@ -60,7 +60,7 @@ describe('CONNECTION', function(){
 			job.data.should.be.eql( jobData );
 			job.log( '<p>This is <span style="color: green;">a</span> formatted log<p/>' );
 			// Needs to be here to support the async client.select statement where the return happens sync but the call is async
-			jobs.client.selected_db.should.be.eql(15);
+			jobs.client.selected_db.should.be.equal(15);
 			jdone();
 			done();
 		} );
@@ -71,9 +71,9 @@ describe('CONNECTION', function(){
 			redis: 'redis://localhost:6379/?foo=bar'
 		} );
 
-		jobs.client.options.port.should.be.eql( 6379 );
-		jobs.client.options.host.should.be.eql( 'localhost' );
-		jobs.client.options.foo.should.be.eql( 'bar' );
+		jobs.client.options.port.should.be.equal( '6379' );
+		jobs.client.options.host.should.be.equal( 'localhost' );
+		jobs.client.options.foo.should.be.equal( 'bar' );
 
 		var jobData = {
 			title: 'welcome email for tj',
@@ -84,7 +84,7 @@ describe('CONNECTION', function(){
 		jobs.process( 'email-should-be-processed-5', function ( job, jdone ) {
 			job.data.should.be.eql( jobData );
 			job.log( '<p>This is <span style="color: green;">a</span> formatted log<p/>' );
-			jobs.client.selected_db.should.be.eql(0);
+			jobs.client.selected_db.should.be.equal(0);
 			jdone();
 			done();
 		} );
@@ -96,9 +96,9 @@ describe('CONNECTION', function(){
 			redis: 'redis://localhost:6379?foo=bar'
 		} );
 
-		jobs.client.options.port.should.be.eql( 6379 );
-		jobs.client.options.host.should.be.eql( 'localhost' );
-		jobs.client.options.foo.should.be.eql( 'bar' );
+		jobs.client.options.port.should.be.equal( '6379' );
+		jobs.client.options.host.should.be.equal( 'localhost' );
+		jobs.client.options.foo.should.be.equal( 'bar' );
 
 		var jobData = {
 			title: 'welcome email for tj',
@@ -109,7 +109,7 @@ describe('CONNECTION', function(){
 		jobs.process( 'email-should-be-processed-6', function ( job, jdone ) {
 			job.data.should.be.eql( jobData );
 			job.log( '<p>This is <span style="color: green;">a</span> formatted log<p/>' );
-			jobs.client.selected_db.should.be.eql(0);
+			jobs.client.selected_db.should.be.equal(0);
 			jdone();
 			done();
 		} );
@@ -127,9 +127,9 @@ describe('CONNECTION', function(){
 			}
 		} );
 
-		jobs.client.options.port.should.be.eql( 6379 );
-		jobs.client.options.host.should.be.eql( 'localhost' );
-		jobs.client.options.foo.should.be.eql( 'bar' );
+		jobs.client.options.port.should.be.equal( 6379 );
+		jobs.client.options.host.should.be.equal( 'localhost' );
+		jobs.client.options.foo.should.be.equal( 'bar' );
 
 		var jobData = {
 			title: 'welcome email for tj',
@@ -141,7 +141,7 @@ describe('CONNECTION', function(){
 			job.data.should.be.eql( jobData );
 			job.log( '<p>This is <span style="color: green;">a</span> formatted log<p/>' );
 			// Needs to be here to support the async client.select statement where the return happens sync but the call is async
-			jobs.client.selected_db.should.be.eql(0);
+			jobs.client.selected_db.should.be.equal(0);
 			jdone();
 			done();
 		} );
@@ -206,9 +206,9 @@ describe( 'JOBS', function () {
       redis: 'redis://localhost:6379/?foo=bar'
     } );
 
-    jobs.client.options.port.should.be.eql( 6379 );
-    jobs.client.options.host.should.be.eql( 'localhost' );
-    jobs.client.options.foo.should.be.eql( 'bar' );
+    jobs.client.options.port.should.be.equal( '6379' );
+    jobs.client.options.host.should.be.equal( 'localhost' );
+    jobs.client.options.foo.should.be.equal( 'bar' );
 
     var jobData = {
       title: 'welcome email for tj',
