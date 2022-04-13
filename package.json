@@ -31,9 +31,9 @@
     "nib": "~1.1.2",
     "node-redis-warlock": "^1.0.2",
     "pug": "^3.0.2",
-    "redis": "~2.6.0-2",
+    "redis": "^3.0.0",
     "stylus": "~0.54.5",
-    "yargs": "^4.0.0"
+    "yargs": "^17.4.1"
   },
   "devDependencies": {
     "async": "^3.2.3",
@@ -52,6 +52,6 @@
     "test": "mocha --exit"
   },
   "optionalDependencies": {
-    "reds": "^0.2.5"
+    "reds": "^1.0.0"
   }
 }
