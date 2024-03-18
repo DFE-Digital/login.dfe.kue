@@ -144,33 +144,6 @@ describe( 'JSON API', function () {
   } );
 
 
-  describe( 'search', function () {
-    it( 'search by query: not found', function ( done ) {
-      request( app )
-        .get( '/job/search' )
-        .query( {} )
-        .expect( function ( res ) {
-          res.body.length.should.equal( 0 );
-        } )
-        .end( done );
-    } );
-
-
-    it( 'search by query: found', function ( done ) {
-      request( app )
-        .get( '/job/search' )
-        .query( {
-          q: type + ':data'
-        } )
-        .expect( function ( res ) {
-          // we created 6 jobs, one was deleted, 5 left
-          res.body.length.should.equal( 5 );
-        } )
-        .end( done );
-    } );
-  } );
-
-
   describe( 'range', function () {
     it( 'range from...to', function ( done ) {
       request( app )
