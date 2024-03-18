@@ -50,8 +50,5 @@
   },
   "scripts": {
     "test": "mocha --exit"
-  },
-  "optionalDependencies": {
-    "reds": "^1.0.0"
   }
 }

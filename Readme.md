@@ -683,39 +683,6 @@ You can also use [Kue-UI](https://github.com/StreetHub/kue-ui) web interface con
 
 Along with the UI Kue also exposes a JSON API, which is utilized by the UI.
 
-### GET /job/search?q=
-
-Query jobs, for example "GET /job/search?q=avi video":
-
-```js
-["5", "7", "10"]
-```
-
-By default kue indexes the whole Job data object for searching, but this can be customized via calling `Job#searchKeys` to tell kue which keys on Job data to create index for:
-
-```javascript
-var kue = require('kue');
-queue = kue.createQueue();
-queue.create('email', {
-    title: 'welcome email for tj'
-  , to: 'tj@learnboost.com'
-  , template: 'welcome-email'
-}).searchKeys( ['to', 'title'] ).save();
-```
-
-Search feature is turned off by default from Kue `>=0.9.0`. Read more about this [here](https://github.com/Automattic/kue/issues/412). You should enable search indexes and add [reds](https://www.npmjs.com/package/reds) in your dependencies if you need to:
-
-```javascript
-var kue = require('kue');
-q = kue.createQueue({
-    disableSearch: false
-});
-```
-
-```
-npm install reds --save
-```
-
 ### GET /stats
 
 Currently responds with state counts, and worker activity time in milliseconds:
